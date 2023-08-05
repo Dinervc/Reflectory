@@ -30,7 +30,7 @@ Follow these steps to set up Reflectory locally for development and testing purp
    At the terminal, execute the following command to clone the repo:
 
    ```bash
-   git clone https://github.com/your-repo-link```
+   git clone https://github.com/your-repo-link
    
 2. **Set Up Environment Variables**
 
