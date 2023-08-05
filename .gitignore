@@ -1,5 +1,8 @@
 # Ignore all .txt files
 *.txt
 
-# Ignore all .txt files
+# Ignore .env file
 .env
+
+# Ignore node_modules
+node_modules/
