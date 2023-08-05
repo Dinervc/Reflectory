@@ -34,10 +34,10 @@ Follow these steps to set up Reflectory locally for development and testing purp
    
 2. **Set Up Environment Variables**
 
-   - Create a `.env`file at the root of the project.
+   - Create a `.env` file at the root of the project.
    - Set the `OPENAI_KEY` variable to your OpenAI key (replace the comment).
-     ```.env
-     OPENAI_API_KEY=#OPENAI_KEY
+   ```.env
+   OPENAI_API_KEY=#OPENAI_KEY
 
 3. **Start the Server**
 
