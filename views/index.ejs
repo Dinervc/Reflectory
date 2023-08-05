@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reflectory</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    <div
+      id="container"
+      style="display: flex; flex-direction: column; height: 100vh"
+    >
+      <form
+        action="/ask"
+        method="POST"
+        style="
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <textarea
+          name="prompt"
+          placeholder="Enter your thoughts here"
+          style="
+            resize: vertical;
+            min-height: 30vh;
+            width: 50vw;
+            font-size: 1.2rem;
+            border-radius: 10px;
+          "
+        ></textarea>
+        <button
+          type="submit"
+          style="
+            background-color: var(--warm-color);
+            color: var(--text-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 50vw;
+          "
+        >
+          Ask
+        </button>
+      </form>
+    </div>
+    <div style="height: 95vh; margin: auto">
+      <% if (typeof danger !== 'undefined') { %>
+      <div id="response" class="response" style="flex: 1; margin-bottom: 800px">
+        <%= danger %>
+      </div>
+      <% } else { if (typeof thoughts !== 'undefined') { %>
+      <div id="response" class="response" style="flex: 1">
+        <h2>Analysis</h2>
+        <%= thoughts %>
+      </div>
+      <% } if (typeof improvements !== 'undefined') { %>
+      <div id="improvements" class="response" style="flex: 1">
+        <h2>Tips on how to improve your situation</h2>
+        <% for (let i = 0; i < improvements.length; i++) { %>
+        <p><%= (i + 1) + '. ' + improvements[i] %></p>
+        <% } %>
+      </div>
+      <div id="quotes" class="response" style="flex: 1">
+        <h2>Stoic quotes</h2>
+        <% for (let i = 0; i < quotes.length; i++) { %>
+        <p><%= (i + 1) + '. ' + quotes[i] %></p>
+        <% } %>
+      </div>
+      <% } } %>
+    </div>
+    <script src="/js/app.js"></script>
+    <script>
+      window.onload = function () {
+        var response = document.getElementById("response");
+        if (response) {
+          smoothScrollTo(response.offsetTop, 1000);
+        }
+      };
+
+      function smoothScrollTo(targetPosition, duration) {
+        var startPosition = window.pageYOffset;
+        var distance = targetPosition - startPosition;
+        var startTime = null;
+
+        function animation(currentTime) {
+          if (startTime === null) startTime = currentTime;
+          var timeElapsed = currentTime - startTime;
+          var run = ease(timeElapsed, startPosition, distance, duration);
+          window.scrollTo(0, run);
+          if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+
+        function ease(t, b, c, d) {
+          t /= d / 2;
+          if (t < 1) return (c / 2) * t * t + b;
+          t--;
+          return (-c / 2) * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(animation);
+      }
+    </script>
+  </body>
+</html>
