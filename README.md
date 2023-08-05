@@ -30,12 +30,12 @@ Follow these steps to set up Reflectory locally for development and testing purp
    At the terminal, execute the following command to clone the repo:
 
    ```bash
-   git clone https://github.com/your-repo-link
+   git clone https://github.com/Dinervc/Reflectory.git
    
 2. **Set Up Environment Variables**
 
-   - Rename the provided `.env.sample` to `.env`.
-   - Set the `OPENAI_KEY` variable to your OpenAI key.
+   - Open the `.env`file.
+   - Set the `OPENAI_KEY` variable to your OpenAI key (replace the comment).
 
 3. **Start the Server**
 
