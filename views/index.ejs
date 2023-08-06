@@ -3,8 +3,53 @@
   <head>
     <title>Reflectory</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
+    <button onclick="showPopup()" id="phB">?</button>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>
+          Welcome to Reflectory! 🧠💡<br /><br />
+
+          Hello there! I'm delighted you've landed here. Reflectory is an
+          application I've created that leverages the advanced artificial
+          intelligence technology to foster mental health improvement. It's a
+          project I'm proud to have developed for the Hack United hackathon in
+          2023.<br /><br />
+
+          Here's what Reflectory can offer you:<br /><br />
+
+          - AI Analysis and Response: Utilizing the powerful GPT-3 model from
+          OpenAI, the system understands and responds to your sentiments in a
+          personalized manner.<br />
+          - Personalized Insights: Reflectory generates probing questions
+          tailored for you, promoting self-reflection.<br />
+          - Wellness Tips: Based on your input, it provides valuable advice to
+          boost your mental wellness.<br />
+          - Inspiring Quotes: To uplift your mood, Reflectory shares
+          motivational quotes delivered by AI.<br /><br />
+
+          You might wonder, "What happens to my data?"<br /><br />
+
+          Your privacy is a priority here. Reflectory is crafted with a strong
+          commitment to user privacy. I assure you that no data you share with
+          the application is stored. You can interact with Reflectory freely,
+          knowing your information remains private and confidential.<br /><br />
+
+          Feel invited to embark on your self-reflection journey with
+          Reflectory. Keep in mind, while this tool is designed to encourage
+          self-reflection and mental well-being, it's not a replacement for
+          professional mental health services.<br /><br />
+
+          Thank you for choosing Reflectory. Now, let's begin your journey of
+          reflection!
+        </p>
+      </div>
+    </div>
+
     <div
       id="container"
       style="display: flex; flex-direction: column; height: 100vh"
@@ -22,7 +67,7 @@
       >
         <textarea
           name="prompt"
-          placeholder="Enter your thoughts here"
+          placeholder="Describe your situation as precise as you wish..."
           style="
             resize: vertical;
             min-height: 30vh;
@@ -43,11 +88,11 @@
             width: 50vw;
           "
         >
-          Ask
+          Ready?
         </button>
       </form>
     </div>
-    <div style="height: 95vh; margin: auto">
+    <div style="height: 98vh; margin: auto">
       <% if (typeof danger !== 'undefined') { %>
       <div id="response" class="response" style="flex: 1; margin-bottom: 800px">
         <%= danger %>
@@ -72,14 +117,50 @@
       </div>
       <% } } %>
     </div>
-    <script src="/js/app.js"></script>
     <script>
+      var modal = document.getElementById("myModal");
+
+      var btn = document.getElementById("phB");
+
+      var span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      window.addEventListener(
+        "input",
+        function () {
+          this.style.height = "auto";
+          this.style.height = this.scrollHeight + "px";
+        },
+        false
+      );
+
       window.onload = function () {
         var response = document.getElementById("response");
         if (response) {
           smoothScrollTo(response.offsetTop, 1000);
         }
+        if (!response) {
+          showPopup();
+        }
       };
+
+      function showPopup() {
+        // defined the missing showPopup function
+        modal.style.display = "block";
+      }
 
       function smoothScrollTo(targetPosition, duration) {
         var startPosition = window.pageYOffset;

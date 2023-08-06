@@ -1,11 +1,14 @@
 require("dotenv").config();
 const express = require("express");
+const favicon = require("serve-favicon");
+const path = require("path");
 const { OpenAIApi, Configuration } = require("openai");
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
+app.use(favicon(path.join(__dirname, "favicon.ico")));
 app.use(express.static(__dirname));
 
 app.get("*.js", function (req, res, next) {
