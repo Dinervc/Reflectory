@@ -4,7 +4,7 @@ Welcome to Reflectory, an AI-powered mental health improvement application, meti
 
 ## Project Overview 🎯
 
-Reflectory harnesses the power of OpenAI's GPT-3 to offer insights and suggestions based on user inputs. By analyzing a user's sentiments, the app generates thought-provoking questions, provides tips for improvement, and offers inspiring quotes. Our goal is to create a non-judgmental, AI-powered space where individuals can reflect on their feelings and gain new perspectives. 
+Reflectory harnesses the power of OpenAI's GPT-3 to offer insights and suggestions based on user inputs. By analyzing a user's sentiments, the app generates thought-provoking questions, provides tips for improvement, and offers inspiring quotes. My goal is to create a non-judgmental, AI-powered space where individuals can reflect on their feelings and gain new perspectives. 
 
 ## Key Features 🔑
 
